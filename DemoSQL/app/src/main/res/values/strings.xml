@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DemoSQL</string>
+    <string name="button_title_add">Add</string>
+    <string name="button_title_update">Update</string>
+    <string name="button_title_delete">Delete</string>
+    <string name="button_title_show">Show List</string>
+    <string name="text_name">Input Name</string>
+    <string name="text_price">Input Price</string>
+    <string name="text_quantity">Input Quantity</string>
+    <string name="text_id">Input ID</string>
 </resources>
