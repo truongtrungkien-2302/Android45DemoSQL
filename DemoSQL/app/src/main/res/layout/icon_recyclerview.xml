@@ -5,6 +5,7 @@
     android:layout_margin="10dp">
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:orientation="horizontal">
@@ -34,7 +35,6 @@
             android:layout_weight="1"
             android:background="#23232323"
             android:gravity="center"
-            android:textColor="@color/white"
             android:textSize="20sp" />
 
         <TextView

@@ -12,12 +12,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/text_id"
-                android:inputType="number" />
+            <!--            <EditText-->
+            <!--                android:id="@+id/etID"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="@string/text_id"-->
+            <!--                android:inputType="number" />-->
 
             <EditText
                 android:id="@+id/etName"
@@ -50,32 +50,32 @@
             android:layout_marginTop="20sp"
             android:text="@string/button_title_add" />
 
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50sp"
-            android:text="@string/button_title_update" />
+        <!--        <Button-->
+        <!--            android:id="@+id/btnUpdate"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="50sp"-->
+        <!--            android:text="@string/button_title_update" />-->
 
-        <Button
-            android:id="@+id/btnDelete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50sp"
-            android:text="@string/button_title_delete" />
+                <Button
+                    android:id="@+id/btnDeleteAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50sp"
+                    android:text="@string/button_title_delete_all" />
 
-        <Button
-            android:id="@+id/btnGetFoods"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50sp"
-            android:text="@string/button_title_show" />
+        <!--        <Button-->
+        <!--            android:id="@+id/btnGetFoods"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="50sp"-->
+        <!--            android:text="@string/button_title_show" />-->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="20dp"
             android:id="@+id/rvListFoods"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

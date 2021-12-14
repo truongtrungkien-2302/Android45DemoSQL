@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 public class SQLHelper extends SQLiteOpenHelper {
     SQLiteDatabase sqLiteDatabase;
     //Phím tắt: logt
+    private Context context;
     private static final String TAG = "Cannot invoke method length() on null object";
     private static final String DB_NAME = "OrderFoods.db";
     private static final String DB_TABLE = "Foods";
@@ -25,11 +27,13 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     public SQLHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        this.context = context;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String queryCreateTable = "CREATE TABLE Foods(" +
+        String queryCreateTable = "CREATE TABLE " + DB_TABLE + "(" +
                 "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
                 "name Text, " +
                 "quantity INTEGER," +
@@ -54,18 +58,57 @@ public class SQLHelper extends SQLiteOpenHelper {
         contentValues.put(DB_FOODS_QUANTITY, foods.getQuantity());
         contentValues.put(DB_FOODS_PRICE, foods.getPrice());
 
-        sqLiteDatabase.insert(DB_TABLE, null, contentValues);
+        long result = sqLiteDatabase.insert(DB_TABLE, null, contentValues);
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void onUpdateFoods(String id, Foods foods) {
+    Cursor readAllData() {
+        String query = "SELECT * FROM " + DB_TABLE;
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (sqLiteDatabase != null)
+            cursor = sqLiteDatabase.rawQuery(query, null);
+        return cursor;
+    }
+
+//    public void onUpdateFoods(String id, Foods foods) {
+//        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//
+//        contentValues.put(DB_FOODS_NAME, foods.getName());
+//        contentValues.put(DB_FOODS_QUANTITY, foods.getQuantity());
+//        contentValues.put(DB_FOODS_PRICE, foods.getPrice());
+//
+//        long result = sqLiteDatabase.update(DB_TABLE, contentValues, "id = ?", new String[]{String.valueOf(id)});
+//
+//        if (result == -1) {
+//            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+    public void onUpdateFoods(String id, String name, String quantity, String price) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DB_FOODS_NAME, foods.getName());
-        contentValues.put(DB_FOODS_QUANTITY, foods.getQuantity());
-        contentValues.put(DB_FOODS_PRICE, foods.getPrice());
+        contentValues.put(DB_FOODS_NAME, name);
+        contentValues.put(DB_FOODS_QUANTITY, quantity);
+        contentValues.put(DB_FOODS_PRICE, price);
 
-        sqLiteDatabase.update(DB_TABLE, contentValues, "id = ?", new String[]{String.valueOf(id)});
+        long result = sqLiteDatabase.update(DB_TABLE, contentValues, "id = ?", new String[]{String.valueOf(id)});
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onDeleteAll() {
@@ -75,7 +118,14 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     public void onDeleteFoods(String id) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.delete(DB_TABLE, "id = ?", new String[]{String.valueOf(id)});
+
+        long result = sqLiteDatabase.delete(DB_TABLE, "id = ?", new String[]{String.valueOf(id)});
+
+        if (result == -1) {
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public List<Foods> getAllFoods() {
