@@ -12,13 +12,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/etID"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:hint="@string/text_id"-->
-            <!--                android:inputType="number" />-->
-
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
@@ -50,26 +43,61 @@
             android:layout_marginTop="20sp"
             android:text="@string/button_title_add" />
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btnUpdate"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginHorizontal="50sp"-->
-        <!--            android:text="@string/button_title_update" />-->
+        <Button
+            android:id="@+id/btnDeleteAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50sp"
+            android:text="@string/button_title_delete_all" />
 
-                <Button
-                    android:id="@+id/btnDeleteAll"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="50sp"
-                    android:text="@string/button_title_delete_all" />
+        <LinearLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginTop="20sp"
+            android:orientation="horizontal">
 
-        <!--        <Button-->
-        <!--            android:id="@+id/btnGetFoods"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginHorizontal="50sp"-->
-        <!--            android:text="@string/button_title_show" />-->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custom_layout_menu"
+                android:gravity="center"
+                android:text="ID"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custom_layout_menu"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custom_layout_menu"
+                android:gravity="center"
+                android:text="Quantity"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/custom_layout_menu"
+                android:gravity="center"
+                android:text="Price"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvListFoods"

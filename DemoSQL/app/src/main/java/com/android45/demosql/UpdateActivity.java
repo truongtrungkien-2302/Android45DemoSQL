@@ -27,9 +27,9 @@ public class UpdateActivity extends AppCompatActivity {
 
         getAndSetIntentData();
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setTitle(foodsName);
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null)
+//            actionBar.setTitle(foodsName);
 
         activityUpdateBinding.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

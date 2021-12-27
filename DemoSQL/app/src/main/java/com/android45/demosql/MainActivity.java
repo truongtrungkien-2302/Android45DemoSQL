@@ -41,23 +41,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        foodsID = new ArrayList<>();
-        foodsName = new ArrayList<>();
-        foodsQuantity = new ArrayList<>();
-        foodsPrice = new ArrayList<>();
-
-        storeDataInArrays();
-        rvListFoods = findViewById(R.id.rvListFoods);
-        rvListFoods.setLayoutManager(new GridLayoutManager(getBaseContext(), 1, RecyclerView.VERTICAL, false));
-        foodsAdapter = new FoodsAdapter(MainActivity.this, this, foodsID, foodsName, foodsQuantity, foodsPrice);
-        rvListFoods.setAdapter(foodsAdapter);
-
         activityMainBinding.btnDeleteAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteAllDataFoods();
             }
         });
+
+        showDataList();
+    }
+
+    private void showDataList() {
+        foodsID = new ArrayList<>();
+        foodsName = new ArrayList<>();
+        foodsQuantity = new ArrayList<>();
+        foodsPrice = new ArrayList<>();
+
+        storeDataInArrays();
+
+        rvListFoods = findViewById(R.id.rvListFoods);
+        rvListFoods.setLayoutManager(new GridLayoutManager(getBaseContext(), 1, RecyclerView.VERTICAL, false));
+        foodsAdapter = new FoodsAdapter(MainActivity.this, this, foodsID, foodsName, foodsQuantity, foodsPrice);
+        rvListFoods.setAdapter(foodsAdapter);
     }
 
     private void deleteAllDataFoods() {

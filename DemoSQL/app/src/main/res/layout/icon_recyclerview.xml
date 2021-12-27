@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:background="@drawable/custom_layout_menu2"
         android:orientation="horizontal">
 
         <TextView
@@ -15,16 +16,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#23232323"
             android:gravity="center"
-            android:textSize="20sp" />
+            android:text="1"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvNameRv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#23232323"
+            android:text="Pepsi"
             android:gravity="center"
             android:textSize="20sp" />
 
@@ -33,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#23232323"
+            android:text="5"
             android:gravity="center"
             android:textSize="20sp" />
 
@@ -42,13 +44,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#23232323"
+            android:text="500"
             android:gravity="center"
             android:textSize="20sp" />
 
     </LinearLayout>
 
 </RelativeLayout>
-
-
-

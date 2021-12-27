@@ -18,7 +18,8 @@ public class SQLHelper extends SQLiteOpenHelper {
     private static final String TAG = "Cannot invoke method length() on null object";
     private static final String DB_NAME = "OrderFoods.db";
     private static final String DB_TABLE = "Foods";
-    private static final int DB_VERSION = 1;
+    private static final String DB_TABLE_ORDER = "Orders";
+    private static final int DB_VERSION = 2;
 
     private static String DB_FOODS_ID = "id";
     private static String DB_FOODS_NAME = "name";
@@ -40,13 +41,21 @@ public class SQLHelper extends SQLiteOpenHelper {
                 "price INTEGER)";
 
         db.execSQL(queryCreateTable);
+
+        String queryCreateTableOrder = "CREATE TABLE " + DB_TABLE_ORDER + "(" +
+                "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
+                "name Text, " +
+                "quantity INTEGER," +
+                "price INTEGER)";
+
+        db.execSQL(queryCreateTableOrder);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
-            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
-            onCreate(sqLiteDatabase);
+            db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
+            onCreate(db);
         }
     }
 
