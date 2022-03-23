@@ -14,7 +14,7 @@ import java.util.List;
 public class SQLHelper extends SQLiteOpenHelper {
     SQLiteDatabase sqLiteDatabase;
     //Phím tắt: logt
-    private Context context;
+    private final Context context;
     private static final String TAG = "Cannot invoke method length() on null object";
     private static final String DB_NAME = "OrderFoods.db";
     private static final String DB_TABLE = "Foods";
@@ -85,23 +85,6 @@ public class SQLHelper extends SQLiteOpenHelper {
             cursor = sqLiteDatabase.rawQuery(query, null);
         return cursor;
     }
-
-//    public void onUpdateFoods(String id, Foods foods) {
-//        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//
-//        contentValues.put(DB_FOODS_NAME, foods.getName());
-//        contentValues.put(DB_FOODS_QUANTITY, foods.getQuantity());
-//        contentValues.put(DB_FOODS_PRICE, foods.getPrice());
-//
-//        long result = sqLiteDatabase.update(DB_TABLE, contentValues, "id = ?", new String[]{String.valueOf(id)});
-//
-//        if (result == -1) {
-//            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(context, "Updated Successfully!", Toast.LENGTH_SHORT).show();
-//        }
-//    }
 
     public void onUpdateFoods(String id, String name, String quantity, String price) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
